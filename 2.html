@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset = "utf8">
+<title></title>
+<script type="text/javascript" src="jquery-1.9.0.min.js"></script>  
+<script type="text/javascript"> 
+var myrtn; 
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#test").load("/1.txt",function(responseTxt,statusTxt,xhr){
+      if(statusTxt=="success")
+      //alert(responseTxt);
+	  var index = responseTxt.split('UCanUup').length -1;
+	  alert(index);
+      if(statusTxt=="error")
+        alert("Error: "+xhr.status+": "+xhr.statusText);
+    });
+  });
+});
+
+</script>
+</head>
+<body>
+<h3 id="test">获取文本</h3>
+<button id="btn1" type="button">获取文本</button>
+</body>
+</html>
